@@ -1,0 +1,6 @@
+@QuranApi_HostAddress = http://192.168.100.11:5207
+
+GET {{QuranApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
