@@ -39,14 +39,6 @@ namespace QuranApi.Controllers
             return ayah;
         }
 
-        // GET: api/ayah/sura/{suraId}
-        [HttpGet("sura/{suraId}")]
-        public async Task<ActionResult<IEnumerable<Ayah>>> GetAyahsBySuraId(int suraId)
-        {
-            var ayahs = await _service.GetAyatsBySurahIdAsync(suraId);
-            return Ok(ayahs);
-        }
-
 
         // POST: api/ayah
         [HttpPost]

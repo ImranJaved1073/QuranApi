@@ -13,6 +13,7 @@ namespace QuranApi
         // Define the DbSet for the tayah table
         public DbSet<Ayah> Ayahs { get; set; }
         public DbSet<Surah> Surahs { get; set; }
+        public DbSet<Para> Paras { get; set; }
 
     }
 }

@@ -57,6 +57,14 @@ namespace QuranApi.Services
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<Ayah>> GetAyatsByParaIdAsync(int paraId)
+        {
+            return await _context.Ayahs
+                .Where(a => a.ParaID == paraId)
+                .OrderBy(x => x.AyaID)
+                .ToListAsync();
+        }
+
         public async Task CreateAyatsAsync(IEnumerable<Ayah> ayahs)
         {
             _context.Ayahs.AddRange(ayahs);

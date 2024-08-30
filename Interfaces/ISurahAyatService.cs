@@ -12,5 +12,6 @@ namespace QuranApi.Interfaces
         Task CreateAyatsAsync(IEnumerable<Ayah> ayahs);
         Task<bool> AyatExistsAsync(int id);
         Task<IEnumerable<Ayah>> GetAyatsBySurahIdAsync(int surahId);
+        Task<IEnumerable<Ayah>> GetAyatsByParaIdAsync(int paraId);
     }
 }

@@ -10,11 +10,13 @@ namespace QuranApi.Controllers
     [ApiController]
     public class SurahController : ControllerBase
     {
-         private readonly ISurahService _surahService;
+        private readonly ISurahService _surahService;
+        private readonly ISurahAyatService _service;
 
-        public SurahController(ISurahService surahService)
+        public SurahController(ISurahService surahService, ISurahAyatService service)
         {
             _surahService = surahService;
+            _service = service;
         }
 
         // GET: api/Surah
@@ -25,8 +27,7 @@ namespace QuranApi.Controllers
             return Ok(surahs);
         }
 
-        // GET: api/Surah/5
-        [HttpGet("{id}")]
+        [HttpGet("get/{id}")]
         public async Task<ActionResult<Surah>> GetSurah(int id)
         {
             var surah = await _surahService.GetSurahByIdAsync(id);
@@ -37,6 +38,27 @@ namespace QuranApi.Controllers
             }
 
             return Ok(surah);
+        }
+
+        // GET: api/Surah/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<SurahDetail>> GetSurahDetail(int id)
+        {
+            var surah = await _surahService.GetSurahByIdAsync(id);
+
+            if (surah == null)
+            {
+                return NotFound();
+            }
+            var ayahs = await _service.GetAyatsBySurahIdAsync(surah.Number);
+
+            var surahDetail = new SurahDetail
+            {
+                Surah = surah,
+                Ayahs = ayahs
+            };
+
+            return Ok(surahDetail);
         }
 
         // POST: api/Surah

@@ -15,6 +15,7 @@ builder.Services.AddDbContext<QuranDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<ISurahService, SurahService>();
 builder.Services.AddScoped<ISurahAyatService, SurahAyatService>();
+builder.Services.AddScoped<IParaService, ParaService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
