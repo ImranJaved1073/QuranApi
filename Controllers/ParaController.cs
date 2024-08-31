@@ -41,6 +41,19 @@ namespace QuranApi.Controllers
             return Ok(paraDetail);
         }
 
+        [HttpGet("get/{id}")]
+        public async Task<ActionResult<ParaDetail>> GetPara(int id)
+        {
+            var para = await _paraService.GetParaByIdAsync(id);
+
+            if (para == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(para);
+        }
+
         // GET: api/para
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Para>>> GetAllParas()

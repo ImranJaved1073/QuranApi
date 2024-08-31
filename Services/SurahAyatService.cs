@@ -61,7 +61,7 @@ namespace QuranApi.Services
         {
             return await _context.Ayahs
                 .Where(a => a.ParaID == paraId)
-                .OrderBy(x => x.AyaID)
+                .OrderBy(x => x.pAyatID)
                 .ToListAsync();
         }
 

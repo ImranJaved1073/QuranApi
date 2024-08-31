@@ -13,20 +13,22 @@ namespace QuranApi.Models
 
         public int? AyaNo { get; set; }
 
-        public string ArabicText { get; set; }
+        public string? ArabicText { get; set; }
 
-        public string FatehMuhammadJalandhrield { get; set; }
+        public string? FatehMuhammadJalandhrield { get; set; }
 
-        public string MehmoodulHassan { get; set; }
+        public string? MehmoodulHassan { get; set; }
 
-        public string DrMohsinKhan { get; set; }
+        public string? DrMohsinKhan { get; set; }
 
-        public string MuftiTaqiUsmani { get; set; }
+        public string? MuftiTaqiUsmani { get; set; }
 
         public int? RakuID { get; set; }
 
         public int? PRakuID { get; set; }
 
         public int? ParaID { get; set; }
+
+        public int pAyatID { get; set; }
     }
 }
