@@ -75,5 +75,21 @@ namespace QuranApi.Services
         {
             return await _context.Ayahs.AnyAsync(e => e.AyaID == id);
         }
+
+        public async Task<IEnumerable<Ayah>> GetAyatsInSurahByRukuIdAsync(int surahId, int rukuId)
+        {
+            return await _context.Ayahs
+                .Where(a => a.SuraID == surahId && a.RakuID == rukuId)
+                .OrderBy(x => x.AyaNo)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Ayah>> GetAyatsByRukuIdAsync(int rukuId)
+        {
+            return await _context.Ayahs
+                .Where(a => a.totalRukuCount == rukuId)
+                .OrderBy(x => x.AyaNo)
+                .ToListAsync();
+        }
     }
 }

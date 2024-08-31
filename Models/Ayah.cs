@@ -30,5 +30,7 @@ namespace QuranApi.Models
         public int? ParaID { get; set; }
 
         public int pAyatID { get; set; }
+
+        public int totalRukuCount { get; set; }
     }
 }

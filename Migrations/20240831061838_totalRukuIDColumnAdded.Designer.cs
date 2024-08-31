@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QuranApi;
 
@@ -11,9 +12,11 @@ using QuranApi;
 namespace QuranApi.Migrations
 {
     [DbContext(typeof(QuranDbContext))]
-    partial class QuranDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240831061838_totalRukuIDColumnAdded")]
+    partial class totalRukuIDColumnAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
